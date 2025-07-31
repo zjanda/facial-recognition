@@ -19,12 +19,16 @@ While the current setup isn't designed for large-scale deployment, future enhanc
 
 ## Installation and Usage
 
-- **Server (Windows):** Install Python dependencies, 
-                        set up a virtual environment, 
-                        run `install_requirements.py`, 
-                        then `encode_known_faces.py`, 
-                        and finally `server.py`.
-- **Client (Raspberry Pi):** Install system and Python dependencies, and run `client.py`.
+- **Server (Windows):**
+  1. Install Python dependencies
+  2. Set up a virtual environment
+  3. Run `install_requirements.py`
+  4. Run `encode_known_faces.py`
+  5. Run `server.py`
+
+- **Client (Raspberry Pi):** 
+  1. Install system and Python dependencies
+  2. Run `client.py`
 
 ## Vision
 
