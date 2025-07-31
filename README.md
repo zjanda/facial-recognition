@@ -7,7 +7,7 @@ This project demonstrates a real-time camera streaming system with facial recogn
 - Real-time video streaming and facial recognition
 - Dual connection support (Ethernet/WiFi)
 - Threaded architecture for concurrent operations
-- Frame capture for updating recognition database
+- Frame capture for updating the recognition database
 
 ## Technical Overview
 
@@ -19,7 +19,11 @@ While the current setup isn't designed for large-scale deployment, future enhanc
 
 ## Installation and Usage
 
-- **Server (Windows):** Install Python dependencies, set up a virtual environment, and run `install_requirements.py`, then `encode_known_faces.py`, then finally `server.py`.
+- **Server (Windows):** Install Python dependencies, 
+                        set up a virtual environment, 
+                        run `install_requirements.py`, 
+                        then `encode_known_faces.py`, 
+                        and finally `server.py`.
 - **Client (Raspberry Pi):** Install system and Python dependencies, and run `client.py`.
 
 ## Vision
