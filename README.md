@@ -15,7 +15,7 @@ The system consists of a Windows server for video reception and facial recogniti
 
 ## Scalability and Optimization
 
-While the current setup is not scalable for large deployments, future enhancements could include hybrid edge/local machine computation to distribute processing tasks, optimized detection/recognition methods, model quantization to improve performance and scalability, and threading to separate video feed and detection from recognition processing delays.
+While the current setup isn't designed for large-scale deployment, future enhancements could include a hybrid edge/server architecture for distributed processing, optimized recognition pipelines, model quantization for performance gains, and improved multithreading to decouple video handling and facial detection from recognition tasks.
 
 ## Installation and Usage
 
