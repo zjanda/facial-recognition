@@ -18,8 +18,8 @@ facial_recognition = True
 def receive_video(conn):
     buffer = b""
     frame_count = 0
-    frame_delay = 2
-    facial_recognition_delay = 10
+    detection_delay = 3
+    facial_recognition_delay = 15
     face_locations = None
 
     while True:
@@ -38,23 +38,19 @@ def receive_video(conn):
                 buffer = buffer[end+2:]
 
                 frame = cv2.imdecode(np.frombuffer(jpg, dtype=np.uint8), cv2.IMREAD_COLOR)
-                if frame is not None and frame_count % frame_delay == 0:
+                if frame is not None:
                     if facial_recognition and frame_count % facial_recognition_delay == 0:
                         face_locations = detect_faces(frame)
                         if face_locations:
-                            if DEBUG: print(f"Faces detected: {len(face_locations)}")
                             face_encodings = encode_faces(frame, face_locations)
-                            # if DEBUG: print(f"Face encodings: {face_encodings}")
                             matches_found = compare_faces(face_encodings, known_faces)
-                            print(f"len matches_found: {len(matches_found)}")
-                            if matches_found:
-                                
+                            if matches_found and DEBUG:
                                 if DEBUG: print(f"Known face found: {matches_found}")
                 
+                        if face_locations:
+                            for (top, right, bottom, left) in face_locations:
+                                cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
                 frame_count += 1
-                if face_locations:
-                    for (top, right, bottom, left) in face_locations:
-                        cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
                 cv2.imshow("Pi Stream", frame)
                 if cv2.waitKey(1) == ord("q"):
                     return
